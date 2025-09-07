@@ -10,26 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Check out the repository
       - uses: actions/checkout@v3
-        with:
-          persist-credentials: false  # we will manually set the token
 
-      # 2. Run the Python script
-      - name: Run Python script
+      - name: Run
         run: python main.py
 
-      # 3. Commit & push only if there are changes
-      - name: Commit and push
+      - name: Commit & push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
-          if ! git diff --cached --quiet; then
-            git commit -m "Update index.html"
-            # Set remote URL using GITHUB_TOKEN
-            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/felixdietrich/web.git
-            git push origin main
-          else
-            echo "No changes to commit"
-          fi
+          git commit -m "Update" || echo "No changes"
+          git push
