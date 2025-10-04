@@ -1,7 +1,8 @@
 import pandas as pd
 import plotly.graph_objects as go
 
-df = pd.read_csv('https://www.dropbox.com/scl/fi/20rqvoayhfq55oi6vbkwp/NAV_-Clone.csv?rlkey=ovqiv1fwpxtauy0o5f0zrecya&dl=1')
+# df = pd.read_csv('https://www.dropbox.com/scl/fi/20rqvoayhfq55oi6vbkwp/NAV_-Clone.csv?rlkey=ovqiv1fwpxtauy0o5f0zrecya&dl=1')
+df = pd.read_csv('https://www.dropbox.com/scl/fi/i3wsqxcpda0vlqa5jifos/NAV_-Clone.csv?rlkey=0gua3w7e1ugu9zwip9ht01zh1&st=1pjbtsum&dl=1')
 
 def adjusted_NAV(df):
     df_1 = df.dropna().copy()
